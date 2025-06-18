@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
 
 // Para conectar el nuevo modulo se debe importar 
-import { TasksModule } from './tasks/tasks.module'
-import { ModelsModule } from './models/models.module';
-import { UsersModule } from './users/users.module'
+import { ConexionDB } from './config/conexion-module-DB/conexionDB.module';
+
+// Importación de los Modulos que se van a conectar a esta colección
+import { UsersModule } from 'src/users/users.module';
 
 @Module({
   // Esta clase se pasa a este import dentro del decorador "@module"
-  imports: [TasksModule, ModelsModule,UsersModule],
+  imports: [ ConexionDB, UsersModule ],
 })
 export class AppModule {}
 
