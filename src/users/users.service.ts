@@ -14,25 +14,34 @@ export class UsersService {
         private readonly userModel: IUserModel
     ) {};
 
-    async getUsers(): Promise<IUser[] | null> {
+    async getUsers(): Promise<IResponseUser> {
         try {
-            return await this.userModel.allUser();
+
+            return {
+                data: await this.userModel.allUser(),
+                message:'Se realizo la consulta correctamente',
+            };
         } catch(err) {
+
             console.error('ocurrio el siguiente error', err);
-            return null;
-        }
+            return {
+                data:null,
+                message: `Ocurrio el siguiente error en la consulta: ${err}`,
+            };
+        };
     };
 
     async setUserId(id:TIdUser, data:IUser): Promise<IResponseUser> {
         try {
+
             const response = await this.userModel.updateIdUser(id,data);
             return {
                 data:response.data,
                 message:response.message,
             };
         } catch(err) {
-            console.error(err);
 
+            console.error('ocurrio el siguiente error', err);
             return {
                 data: null,
                 message:`Hubo un Error en la actualización del cliente: ${err}`,
@@ -42,6 +51,7 @@ export class UsersService {
 
     async deleteUser(id:TIdUser): Promise<IResponseUser> {
         try {
+
             const response = await this.userModel.deleteOne({ idUser:id });
             return {
                 data:null,
@@ -49,7 +59,7 @@ export class UsersService {
             };
         } catch(err) {
 
-            console.error(err);
+            console.error('ocurrio el siguiente error', err);
             return {
                 data:null,
                 message:`Se genero el siguiente error: ${err}`,
@@ -66,6 +76,8 @@ export class UsersService {
             };
 
         } catch(err) {
+
+            console.error('ocurrio el siguiente error', err);
             return {
                 data:null,
                 message:`Ocurrio el siguiente error en el registro: ${err}`,
