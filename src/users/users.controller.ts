@@ -10,11 +10,6 @@ export class UsersController {
     // Para Simplicar en TypeScript el contructor le podemos crear en la clase un public o private en la declaracion de los parametros
     constructor( public usersService:UsersService ) {}
 
-    /*@Get('/')
-    moduleInicio(): string {
-        return 'Bienvenido al modulo de usuarios'
-    };*/
-
     @Get()
     getUsers() {
         return this.usersService.getUsers();
@@ -22,7 +17,6 @@ export class UsersController {
 
     @Post()
     async addUser( @Body() body:IUser ): Promise<IResponseUser> {
-
         const response = await this.usersService.addUser(body) as IResponseUser;
 
         return {
@@ -34,5 +28,4 @@ export class UsersController {
     //@Delete('/:id')
     // Quede en crear la petición que elimina y luego la petición que actualiza
 
-    
 }

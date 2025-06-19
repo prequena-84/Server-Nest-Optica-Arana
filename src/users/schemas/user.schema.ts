@@ -26,7 +26,7 @@ export class ModelsUsers implements IUser {
     @Prop({ required:true, unique:true })
     Email: string
 
-    @Prop({ required:false, default:null })
+    @Prop({ required:false, unique:true, default:null })
     Telefono: string
 
     @Prop({ required:false, default:null })
@@ -61,12 +61,16 @@ UserSchema.statics.allUser = async function(): Promise<IUser[]> {
 
 UserSchema.statics.updateIdUser = async function(idUser:TIdUser, data:IUser): Promise<IResponseUser> {
     try {
+
         const updateData:IUser = await this.findOneAndUpdate({idUser}, data, {new:true})
+
         return {
             data:updateData,
             message:`Se actualizo los datos del usuario #${updateData.userName} sastifactoriamente`,
         }
+
     } catch(err) {
+
         return {
             data:null,
             message:`Se presento el siguiente Error en la actualizacion de datos: ${err}`,
