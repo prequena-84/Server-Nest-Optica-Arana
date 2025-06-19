@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Delete, Param } from '@nestjs/common';
 import { UsersService } from './users.service';
 import type { IUser } from 'src/interfaces/users/IUser';
 import type { IResponseUser } from 'src/interfaces/response/IResponse';
@@ -25,7 +25,11 @@ export class UsersController {
         };
     };
 
-    //@Delete('/:id')
-    // Quede en crear la petición que elimina y luego la petición que actualiza
+    @Delete(':id')
+    async deleteIdUser( @Param('id') id:number ) {
+        const response = await this.usersService.deleteUser(id);
 
-}
+        return response.message
+    };
+
+};

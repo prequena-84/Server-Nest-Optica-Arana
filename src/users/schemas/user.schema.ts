@@ -9,7 +9,7 @@ import type { TIdUser } from 'src/types/users/TUsers'
 @Schema()
 export class ModelsUsers implements IUser {
     @Prop({ required:true, unique:true })
-    idUser: string
+    idUser: number
 
     @Prop({required:true})
     Password: string

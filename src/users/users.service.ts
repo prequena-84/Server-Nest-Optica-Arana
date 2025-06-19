@@ -14,12 +14,12 @@ export class UsersService {
         private readonly userModel: IUserModel
     ) {};
 
-    async getUsers(): Promise<IUser[]> {
+    async getUsers(): Promise<IUser[] | null> {
         try {
             return await this.userModel.allUser();
         } catch(err) {
             console.error('ocurrio el siguiente error', err);
-            return [];
+            return null;
         }
     };
 

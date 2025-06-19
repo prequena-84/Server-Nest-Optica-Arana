@@ -1,4 +1,4 @@
-type TIdUser = string;
+type TIdUser = number;
 
 export type {
     TIdUser,
