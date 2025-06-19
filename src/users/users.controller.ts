@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Delete, Param, Patch } from '@nestjs/common';
 import { UsersService } from './users.service';
 import type { IUser } from 'src/interfaces/users/IUser';
-import type { IResponseUser } from 'src/interfaces/response/IResponse';
+import type { IResponseUser } from 'src/interfaces/response/IResponseUser';
 
 @Controller('/users')
 export class UsersController {

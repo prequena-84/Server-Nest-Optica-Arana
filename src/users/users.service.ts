@@ -4,7 +4,7 @@ import { ModelsUsers, IUserModel } from './schemas/user.schema';
 
 import type { TIdUser } from 'src/types/users/TUsers';
 import type { IUser } from 'src/interfaces/users/IUser';
-import type { IResponseUser } from 'src/interfaces/response/IResponse';
+import type { IResponseUser } from 'src/interfaces/response/IResponseUser';
 
 @Injectable()
 export class UsersService {

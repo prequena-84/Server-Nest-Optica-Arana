@@ -3,7 +3,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 import { Document, Model } from 'mongoose'
 import type { IUser } from 'src/interfaces/users/IUser'
-import type { IResponseUser } from 'src/interfaces/response/IResponse'
+import type { IResponseUser } from 'src/interfaces/response/IResponseUser'
 import type { TIdUser } from 'src/types/users/TUsers'
 
 @Schema()

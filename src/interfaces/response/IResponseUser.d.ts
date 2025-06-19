@@ -1,4 +1,4 @@
-import { IUser } from "../users/IUser";
+import type { IUser } from "../users/IUser";
 
 interface IResponseUser {
     data?:IUser | IUser[] | null;
