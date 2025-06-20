@@ -14,3 +14,5 @@ import { CostumerModule } from './costumer/costumer.module';
   controllers: [AppController],
 })
 export class AppModule {}
+
+// quede en crear el module de Dianostico y luego hacer el front revisar proque me tomo otra nacionalidad la base de datos a pesar de estar tipada correctamente en mongo.
