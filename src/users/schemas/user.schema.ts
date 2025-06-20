@@ -12,22 +12,22 @@ export class ModelsUsers implements IUser {
     idUser: number
 
     @Prop({required:true})
-    Password: string
+    password: string
 
     @Prop({required:true})
     userName: string
 
     @Prop({required:true})
-    Name: string
+    name: string
 
     @Prop({required:true})
     lastName: string
 
     @Prop({ required:true, unique:true })
-    Email: string
+    email: string
 
     @Prop({ required:false, unique:true, default:null })
-    Telefono: string
+    telefono: string
 
     @Prop({ required:false, default:null })
     tokenConfirmacion: string
@@ -35,7 +35,6 @@ export class ModelsUsers implements IUser {
     @Prop({ required:false, default:null })
     sessionExpiration: number
 }
-
 export type UserDocument = ModelsUsers & Document
 export const UserSchema = SchemaFactory.createForClass(ModelsUsers)
 
@@ -47,11 +46,11 @@ export interface IUserModel extends Model<UserDocument> {
 
 UserSchema.pre<UserDocument>('save', async function(next) {
 
-    if (!this.Password) return next() 
-    if (!this.isModified('Password')) return next()
+    if (!this.password) return next() 
+    if (!this.isModified('password')) return next()
 
     const salt = await bcrypt.genSalt(10)
-    this.Password = await bcrypt.hash(this.Password, salt)
+    this.password = await bcrypt.hash(this.password, salt)
     next()
 })
 
@@ -63,12 +62,10 @@ UserSchema.statics.updateIdUser = async function(idUser:TIdUser, data:IUser): Pr
     try {
 
         const updateData:IUser = await this.findOneAndUpdate({idUser}, data, {new:true})
-
         return {
             data:updateData,
             message:`Se actualizo los datos del usuario #${updateData.userName} sastifactoriamente`,
         }
-
     } catch(err) {
 
         return {
@@ -84,21 +81,21 @@ UserSchema.statics.createInstance = async function(data:IUser): Promise<IRespons
         const {
             idUser,
             userName,
-            Password,
-            Name,
+            password,
+            name,
             lastName,
-            Email,
-            Telefono,
+            email,
+            telefono,
         } = data
 
         const newUser = new this({
             idUser,
             userName,
-            Password,
-            Name,
+            password,
+            name,
             lastName,
-            Email,
-            Telefono,
+            email,
+            telefono,
         })
 
         await newUser.save()
@@ -110,7 +107,7 @@ UserSchema.statics.createInstance = async function(data:IUser): Promise<IRespons
 
     } catch(err) {
 
-        console.error('error en el metodo mongo', err);
+        console.error('error en el metodo mongo', err)
         return {
             data:null,
             message:`Se presento el siguiente error al registrar al nuevo usuario: ${err}`,

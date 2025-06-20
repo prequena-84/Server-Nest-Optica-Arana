@@ -12,11 +12,11 @@ export class ModelsCostumer implements ICostumer {
     @Prop({ required:true, unique:true })
     idCostumer:TIdCostumer
 
-    @Prop({ required:false, unique:true, default:null })
+    @Prop({ required:false, default:null })
     userName:TUserName
 
     @Prop({ required:false, default:null })
-    Password:TPassword
+    password:TPassword
 
     @Prop({ required:true })
     name:string
@@ -25,10 +25,10 @@ export class ModelsCostumer implements ICostumer {
     lastName:string
 
     @Prop({ required:true, default:'Cedula' })
-    typeDocument:TDocument;
+    typeDocument:TDocument
 
-    @Prop({ required:true, unique:true })
-    numberDocument:number | null;
+    @Prop({ required:true, unique:true, defaul:null })
+    numberDocument:number
 
     @Prop({ required:false, default:'Venezuela' })
     nationality:TNationality
@@ -39,16 +39,16 @@ export class ModelsCostumer implements ICostumer {
     @Prop({ required:true })
     address:string
 
-    @Prop({ required:true, unique:true })
+    @Prop({ required:false, default:null })
     email:string
 
-    @Prop({ required:true, unique:true })
+    @Prop({ required:false, default:null })
     telefono:string
 
-    @Prop({ required:false, unique:true, default:null })
+    @Prop({ required:false, default:null })
     tokenConfirmacion:string
 
-    @Prop({ required:false, unique:true, default:null })
+    @Prop({ required:false, default:null })
     sessionExpiration:number
 }
 
@@ -63,10 +63,10 @@ export interface ICostumerModel extends Model<UserDocument> {
 }
 
 CostumerSchema.pre<UserDocument>('save', async function(next) {
-    if (!this.Password) return next() 
-    if (!this.isModified('Password')) return next()
+    if (!this.password) return next() 
+    if (!this.isModified('password')) return next()
     const salt = await bcrypt.genSalt(10)
-    this.Password = await bcrypt.hash(this.Password, salt)
+    this.password = await bcrypt.hash(this.password, salt)
     next()
 })
 
@@ -110,19 +110,23 @@ CostumerSchema.statics.createInstance = async function(data:ICostumer): Promise<
 
         const newCostumer = new this({
             idCostumer,
-            userName,
-            password,
             name,
             lastName,
             typeDocument,
             numberDocument,
             nationality,
             age,
-            address,
-            email,
-            telefono
+            address
         })
 
+        if ( userName && password ) {
+            newCostumer.userName = userName
+            newCostumer.password = password
+        }
+
+        if ( email ) newCostumer.email = email
+        if ( telefono ) newCostumer.telefono = telefono
+   
         await newCostumer.save()
 
         return {
@@ -132,7 +136,7 @@ CostumerSchema.statics.createInstance = async function(data:ICostumer): Promise<
 
     } catch(err) {
 
-        console.error('error en el metodo mongo', err);
+        console.error('error en el metodo mongo', err)
         return {
             data:null,
             message:`Se presento el siguiente error al registrar el nuevo cliente: ${err}`,

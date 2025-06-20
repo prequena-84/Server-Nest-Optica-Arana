@@ -11,8 +11,8 @@ interface ICostumer {
     nationality?:TNationality | null;
     age: number;
     address: string;
-    email:string;
-    telefono:string;
+    email?:string | null;
+    telefono?:string | null;
     tokenConfirmacion?:string | null;
     sessionExpiration?:number | null;
 }

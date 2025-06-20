@@ -14,11 +14,3 @@ import { CostumerModule } from './costumer/costumer.module';
   controllers: [AppController],
 })
 export class AppModule {}
-
-/**
- * Para crear modulos de manera automaticas se hace desde la terminar con el comando
- * 
- * nest generate --help podemos conseguir una guia para obtener los objectos que se pueden crear en el proyecto
- * 
- * con el comando nest g mo models es una abreviatura del comando que permite crear una base de un modulo.
- */

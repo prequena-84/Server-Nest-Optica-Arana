@@ -2,12 +2,12 @@ import type { TIdUser } from "src/types/users/TUsers";
 
 interface IUser {
     idUser:TIdUser;
-    Password:string;
+    password:string;
     userName:string;
-    Name:string;
+    name:string;
     lastName:string;
-    Email:string;
-    Telefono?:string | null;
+    email:string;
+    telefono?:string | null;
     tokenConfirmacion?:string | null;
     sessionExpiration?:number | null;
 }
