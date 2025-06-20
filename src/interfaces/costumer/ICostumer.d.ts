@@ -1,14 +1,14 @@
-import type { TIdCostumer,TUserName, TPassword } from "src/types/costumer/TCostumer";
+import type { TIdCostumer,TUserName, TPassword, TNationality,TDocument } from "src/types/costumer/TCostumer";
 
 interface ICostumer {
     idCostumer:TIdCostumer;
     userName?:TUserName | null;
-    Passaword?:TPassword | null;
+    password?:TPassword | null;
     name:string;
     lastName:string;
-    document:string;
-    nationality?:string | null;
-    rif?:string | null;
+    typeDocument:TDocument;
+    numberDocument:number | null;
+    nationality?:TNationality | null;
     age: number;
     address: string;
     email:string;
