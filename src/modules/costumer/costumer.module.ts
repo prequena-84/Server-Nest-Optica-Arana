@@ -6,7 +6,7 @@ import { CostumerController } from './costumer.controller';
 
 @Module({
   imports:[
-    MongooseModule.forFeature([ {name:ModelsCostumer.name,schema:CostumerSchema} ])
+    MongooseModule.forFeature([ {name:ModelsCostumer.name, schema:CostumerSchema} ])
   ],
   providers: [CostumerService],
   controllers: [CostumerController],

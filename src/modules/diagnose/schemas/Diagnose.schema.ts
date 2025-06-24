@@ -14,10 +14,10 @@ export class ModelsDiagnose implements IDiagnose {
     @Prop({ required:true, unique:true })
     idDiagnose:TIdDiagnose
 
-    @Prop({ required:true, unique:true })
+    @Prop({ required:true })
     idCostumers:TIdCostumers
 
-    @Prop({ required:true, unique:true })
+    @Prop({ required:true })
     idUsers:TIdUsers
 
     @Prop({ required:false, default:0 })

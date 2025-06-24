@@ -8,10 +8,12 @@ import { UsersModule } from './modules/users/users.module';
 import { AppController } from './app.controller';
 import { CostumerModule } from './modules/costumer/costumer.module';
 import { DiagnoseModule } from './modules/diagnose/diagnose.module';
+import { DiagnoseReportModule } from './report/diagnose-report/diagnose-report.module';
+import { CostumerReportModule } from './report/costumer-report/costumer-report.module';
 
 @Module({
   // Esta clase se pasa a este import dentro del decorador "@module"
-  imports: [ ConexionDB, UsersModule, CostumerModule, DiagnoseModule ],
+  imports: [ ConexionDB, UsersModule, CostumerModule, DiagnoseModule, DiagnoseReportModule, CostumerReportModule ],
   controllers: [AppController],
 })
 export class AppModule {}
