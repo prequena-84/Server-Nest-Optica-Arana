@@ -16,4 +16,4 @@ import { DiagnoseModule } from './diagnose/diagnose.module';
 })
 export class AppModule {}
 
-// quede en crear el module de Dianostico y luego hacer el front revisar proque me tomo otra nacionalidad la base de datos a pesar de estar tipada correctamente en mongo.
+// quede en crear el module de reportes de los datos del cliente, usuario & su diagnostico, y revisar porque me tomo otra nacionalidad diferente en la lista de la base de datos a pesar de estar tipada correctamente de la interface.
