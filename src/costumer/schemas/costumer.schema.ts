@@ -5,7 +5,7 @@ import { Document, Model } from 'mongoose'
 
 import type { ICostumer } from 'src/interfaces/costumer/ICostumer'
 import type { IResponseCostumer } from 'src/interfaces/response/IResponseCostumer'
-import type { TIdCostumer,TUserName, TPassword,TNationality,TDocument } from 'src/types/costumer/TCostumer'
+import type { TIdCostumer,TUserName, TPassword,TNationality,TTypeDocument } from 'src/types/costumer/TCostumer'
 
 @Schema()
 export class ModelsCostumer implements ICostumer {
@@ -25,7 +25,7 @@ export class ModelsCostumer implements ICostumer {
     lastName:string
 
     @Prop({ required:true, default:'Cedula' })
-    typeDocument:TDocument
+    typeDocument:TTypeDocument
 
     @Prop({ required:true, unique:true, defaul:null })
     numberDocument:number
