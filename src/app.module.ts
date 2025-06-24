@@ -4,10 +4,10 @@ import { Module } from '@nestjs/common';
 import { ConexionDB } from './config/connection/conexionDB.module';
 
 // Importación de los Modulos que se van a conectar a esta colección
-import { UsersModule } from 'src/users/users.module';
+import { UsersModule } from './modules/users/users.module';
 import { AppController } from './app.controller';
-import { CostumerModule } from './costumer/costumer.module';
-import { DiagnoseModule } from './diagnose/diagnose.module';
+import { CostumerModule } from './modules/costumer/costumer.module';
+import { DiagnoseModule } from './modules/diagnose/diagnose.module';
 
 @Module({
   // Esta clase se pasa a este import dentro del decorador "@module"
