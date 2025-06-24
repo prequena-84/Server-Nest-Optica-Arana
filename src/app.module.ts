@@ -7,10 +7,11 @@ import { ConexionDB } from './config/connection/conexionDB.module';
 import { UsersModule } from 'src/users/users.module';
 import { AppController } from './app.controller';
 import { CostumerModule } from './costumer/costumer.module';
+import { DiagnoseModule } from './diagnose/diagnose.module';
 
 @Module({
   // Esta clase se pasa a este import dentro del decorador "@module"
-  imports: [ ConexionDB, UsersModule, CostumerModule ],
+  imports: [ ConexionDB, UsersModule, CostumerModule, DiagnoseModule ],
   controllers: [AppController],
 })
 export class AppModule {}

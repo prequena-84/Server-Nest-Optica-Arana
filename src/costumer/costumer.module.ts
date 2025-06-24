@@ -12,4 +12,4 @@ import { CostumerController } from './costumer.controller';
   controllers: [CostumerController],
   exports:[CostumerService],
 })
-export class CostumerModule {}
+export class CostumerModule {};
