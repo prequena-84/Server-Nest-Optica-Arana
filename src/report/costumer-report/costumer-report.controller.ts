@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Body, Delete, Param, Patch } from '@nestjs/common';
+import { Controller, Get,  } from '@nestjs/common';
 import { CostumerReportService } from './costumer-report.service';
 
 
-@Controller('costumer-report')
+@Controller('API/V1/costumer/report')
 export class CostumerReportController {
     constructor( public costumerReportService: CostumerReportService ) {};
 

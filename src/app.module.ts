@@ -39,10 +39,12 @@ export class AppModule implements NestModule {
       { path: 'API/V1/users/:id', method: RequestMethod.PATCH },
       { path: 'API/V1/costumer/get', method: RequestMethod.POST },
       { path: 'API/V1/costumer/add', method: RequestMethod.POST },
+      { path: 'API/V1/costumer/report', method: RequestMethod.ALL },
       { path: 'API/V1/costumer/:id', method: RequestMethod.DELETE },
       { path: 'API/V1/costumer/:id', method: RequestMethod.PATCH },
       { path: 'API/V1/diagnose/get', method: RequestMethod.POST },
       { path: 'API/V1/diagnose/add', method: RequestMethod.POST },
+      { path: 'API/V1/diagnose/report', method: RequestMethod.ALL },
       { path: 'API/V1/diagnose/:id', method: RequestMethod.DELETE },
       { path: 'API/V1/diagnose/:id', method: RequestMethod.PATCH },
     );

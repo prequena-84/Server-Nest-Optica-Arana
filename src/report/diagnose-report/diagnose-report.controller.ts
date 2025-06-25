@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Delete, Param, Patch } from '@nestjs/commo
 import { DiagnoseReportService } from './diagnose-report.service';
 
 
-@Controller('/diagnose-report')
+@Controller('API/V1/diagnose/report')
 export class DiagnoseReportController {
     constructor( public diagnoseReportService: DiagnoseReportService ) {};
 
