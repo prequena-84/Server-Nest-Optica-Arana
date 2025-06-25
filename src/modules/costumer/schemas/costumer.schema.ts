@@ -30,7 +30,18 @@ export class ModelsCostumer implements ICostumer {
     @Prop({ required:true, unique:true, defaul:null })
     numberDocument:number
 
-    @Prop({ required:false, default:'Venezuela' })
+    @Prop({ 
+        required:false, 
+        default:'Venezuela',
+          enum: [
+            'Venezuela', 'Colombia', 'Argentina', 'Peru', 'Chile',
+            'Bolivia', 'Uruguay', 'Paraguay', 'Ecuador', 'Guatemala',
+            'Honduras', 'Nicaragua', 'Panamá', 'Costa Rica', 'México',
+            'España', 'Portugal', 'Italia', 'Francia', 'Alemania',
+            'Reino Unido', 'Paises Bajos', 'Estados Unidos', 'Cuba',
+            'Brasil', 'Republica Dominicana'
+        ],
+     })
     nationality:TNationality
 
     @Prop({ required:true })

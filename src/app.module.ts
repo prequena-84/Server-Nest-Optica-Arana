@@ -48,6 +48,3 @@ export class AppModule implements NestModule {
     );
   };
 };
-
-// Quede en revisar porque me tomo otra nacionalidad diferente en la lista de la base de datos a pesar de estar tipada correctamente de la interface.
-// Quede en revisar cuales eran las rutas protegidas y cuales no.
