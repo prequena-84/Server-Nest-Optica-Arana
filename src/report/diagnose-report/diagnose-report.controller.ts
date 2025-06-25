@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Delete, Param, Patch } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { DiagnoseReportService } from './diagnose-report.service';
 
 
