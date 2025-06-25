@@ -1,6 +1,6 @@
 // Importación del Middleware
-import { /*MiddlewareConsumer,*/ Module, /*NestModule, RequestMethod*/ } from '@nestjs/common';
-//import { JwtMiddleware } from './common/middleware/jwt.middleware';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
+import { JwtMiddleware } from './common/middleware/jwt.middleware';
 
 // Para conectar el nuevo modulo se debe importar 
 import { ConexionDB } from './config/connection/conexionDB.module';
@@ -29,9 +29,8 @@ import { AppController } from './app.controller';
   ],
   controllers: [AppController],
 })
-export class AppModule {}
-// Para activar el middleware en Nest
-/*implements NestModule {
+export class AppModule implements NestModule {
+  // Para activar el middleware en Nest
   configure(consumer: MiddlewareConsumer) {
     consumer
     .apply(JwtMiddleware)
@@ -40,6 +39,7 @@ export class AppModule {}
       { path: 'diagnose', method: RequestMethod.POST },
     );
   };
-};*/
+};
 
 // Quede en revisar porque me tomo otra nacionalidad diferente en la lista de la base de datos a pesar de estar tipada correctamente de la interface.
+// Quede en revisar cuales eran las rutas protegidas y cuales no.
