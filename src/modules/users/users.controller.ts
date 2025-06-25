@@ -4,7 +4,7 @@ import type { IUser } from 'src/interfaces/users/user.interface';
 import type { TIdUser } from 'src/types/users/users.type';
 import type { IResponseUser } from 'src/interfaces/response/response-user.interface';
 
-@Controller('/users')
+@Controller('users')
 export class UsersController {
     constructor( public usersService:UsersService ) {}
     

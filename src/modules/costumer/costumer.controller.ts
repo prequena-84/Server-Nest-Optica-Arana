@@ -8,7 +8,7 @@ import type { TIdCostumer } from 'src/types/costumer/costumer.type';
 export class CostumerController {
     constructor( public costumerService:CostumerService ) {}
 
-    @Get()
+    @Post()
     async getCostumers(): Promise<IResponseCostumer> {
         const response = await this.costumerService.getCostumers();
         return {

@@ -6,7 +6,7 @@ import * as jwt from 'jsonwebtoken';
 const secretKey = process.env.secretKey || keyJWT();
 
 const generateToken = ( userName:TUserName ): TGenerateToken => {
-    const options: jwt.SignOptions = { expiresIn: '25m' };
+    const options: jwt.SignOptions = { expiresIn: '1m' };
     return jwt.sign({ userName }, secretKey, options);
 }
 
