@@ -17,7 +17,6 @@ import { AuthModule } from './modules/auth/auth.module';
 import { AppController } from './app.controller';
 
 @Module({
-  // Esta clase se pasa a este import dentro del decorador "@module"
   imports: [ 
     ConexionDB, 
     UsersModule, 
