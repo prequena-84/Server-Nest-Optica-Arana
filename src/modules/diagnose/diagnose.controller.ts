@@ -5,12 +5,17 @@ import type { IDiagnose } from 'src/interfaces/diagnose/diagnose.interface';
 import type { TIdDiagnose } from 'src/types/diagnose/diagnose.type';
 import type { IResponseDiagnose } from 'src/interfaces/response/response-diagnose.interface';
 
-@Controller('diagnose')
+@Controller('API/V1/diagnose')
 export class DiagnoseController {
     constructor( public diagnoseService:DiagnoseService ) {};
 
-    @Get()
-        async getDiagnose(): Promise<IResponseDiagnose> {
+    @Get('/')
+    getWelcome() {
+        return "Bienvenido al Servicio de CRUD de Diagnostico";
+    };
+
+    @Post('get')
+    async getDiagnose(): Promise<IResponseDiagnose> {
         const response = await this.diagnoseService.getDiagnose();
         return {
             data:response.data,
@@ -18,7 +23,7 @@ export class DiagnoseController {
         };
     };
 
-    @Post()
+    @Post('add')
     async addDiagnose( @Body() body:IDiagnose ): Promise<IResponseDiagnose> { 
         const response = await this.diagnoseService.addDiagnose(body);
         return {

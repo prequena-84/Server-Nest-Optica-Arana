@@ -4,11 +4,16 @@ import type { ICostumer } from 'src/interfaces/costumer/costumer.interface';
 import type { IResponseCostumer } from 'src/interfaces/response/response-costumer.interface';
 import type { TIdCostumer } from 'src/types/costumer/costumer.type';
 
-@Controller('costumer')
+@Controller('API/V1/costumer')
 export class CostumerController {
     constructor( public costumerService:CostumerService ) {}
 
-    @Post()
+    @Get('/')
+    getWelcome() {
+        return "Bienvenido al Servicio de CRUD de Clientes";
+    };
+
+    @Post('get')
     async getCostumers(): Promise<IResponseCostumer> {
         const response = await this.costumerService.getCostumers();
         return {
@@ -17,7 +22,7 @@ export class CostumerController {
         };
     };
 
-    @Post()
+    @Post('add')
     async addCostumer( @Body() body:ICostumer ): Promise<IResponseCostumer> { 
         const response = await this.costumerService.addCostumer(body);
         return {

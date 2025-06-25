@@ -12,7 +12,7 @@ import { UsersController } from './users.controller';
   controllers: [UsersController],
   exports:[
     UsersService,
-    MongooseModule,
+    MongooseModule,  // Se exporta el modelo de mongoose para que otro modulo como un middleware lo pueda utilizar
   ],
 })
-export class UsersModule {}
+export class UsersModule {};

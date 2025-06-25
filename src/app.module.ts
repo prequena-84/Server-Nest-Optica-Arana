@@ -34,8 +34,19 @@ export class AppModule implements NestModule {
     consumer
     .apply(JwtMiddleware)
     .forRoutes(
-      { path: 'costumer', method: RequestMethod.ALL },
-      { path: 'diagnose', method: RequestMethod.POST },
+      { path: 'API/V1/users/get', method: RequestMethod.GET },
+      { path: 'API/V1/users/:id', method: RequestMethod.DELETE },
+      { path: 'API/V1/users/:id', method: RequestMethod.PATCH },
+
+      { path: 'API/V1/costumer/get', method: RequestMethod.POST },
+      { path: 'API/V1/costumer/add', method: RequestMethod.POST },
+      { path: 'API/V1/costumer/:id', method: RequestMethod.DELETE },
+      { path: 'API/V1/costumer/:id', method: RequestMethod.PATCH },
+
+      { path: 'API/V1/diagnose/get', method: RequestMethod.POST },
+      { path: 'API/V1/diagnose/add', method: RequestMethod.POST },
+      { path: 'API/V1/diagnose/:id', method: RequestMethod.DELETE },
+      { path: 'API/V1/diagnose/:id', method: RequestMethod.PATCH },
     );
   };
 };
