@@ -5,7 +5,7 @@ import type { IDiagnose } from 'src/interfaces/diagnose/Idiagnose';
 import type { TIdDiagnose } from 'src/types/diagnose/TDiagnose';
 import type { IResponseDiagnose } from 'src/interfaces/response/IResponsediagnose';
 
-@Controller('/diagnose')
+@Controller('diagnose')
 export class DiagnoseController {
     constructor( public diagnoseService:DiagnoseService ) {};
 

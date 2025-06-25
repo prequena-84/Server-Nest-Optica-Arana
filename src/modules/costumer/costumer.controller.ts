@@ -4,7 +4,7 @@ import type { ICostumer } from 'src/interfaces/costumer/ICostumer';
 import type { IResponseCostumer } from 'src/interfaces/response/IResponseCostumer';
 import type { TIdCostumer } from 'src/types/costumer/TCostumer';
 
-@Controller('/costumer')
+@Controller('costumer')
 export class CostumerController {
     constructor( public costumerService:CostumerService ) {}
 

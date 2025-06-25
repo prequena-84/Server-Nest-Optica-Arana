@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Delete, Param, Patch } from '@nestjs/commo
 import { CostumerReportService } from './costumer-report.service';
 
 
-@Controller('/costumer-report')
+@Controller('costumer-report')
 export class CostumerReportController {
     constructor( public costumerReportService: CostumerReportService ) {};
 
