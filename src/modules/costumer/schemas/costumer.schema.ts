@@ -3,9 +3,9 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 import { Document, Model } from 'mongoose'
 
-import type { ICostumer } from 'src/interfaces/costumer/ICostumer'
-import type { IResponseCostumer } from 'src/interfaces/response/IResponseCostumer'
-import type { TIdCostumer,TUserName, TPassword,TNationality,TTypeDocument } from 'src/types/costumer/TCostumer'
+import type { ICostumer } from 'src/interfaces/costumer/costumer.interface'
+import type { IResponseCostumer } from 'src/interfaces/response/response-costumer.interface'
+import type { TIdCostumer,TUserName, TPassword,TNationality,TTypeDocument } from 'src/types/costumer/costumer.type'
 
 @Schema()
 export class ModelsCostumer implements ICostumer {

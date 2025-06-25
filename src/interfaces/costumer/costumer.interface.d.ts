@@ -13,7 +13,7 @@ import type {
     TTelefono,
     TTokenConfirmacion,
     TSessionExpiration 
-} from "src/types/costumer/TCostumer";
+} from "src/types/costumer/costumer.type";
 
 interface ICostumer {
     idCostumer:TIdCostumer;

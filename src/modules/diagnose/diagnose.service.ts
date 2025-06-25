@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { ModelsDiagnose,IDiagnoseModel } from './schemas/Diagnose.schema';
 
-import type { TIdDiagnose } from 'src/types/diagnose/TDiagnose';
-import type { IDiagnose } from 'src/interfaces/diagnose/Idiagnose';
-import type { IResponseDiagnose } from 'src/interfaces/response/IResponsediagnose';
+import type { TIdDiagnose } from 'src/types/diagnose/diagnose.type';
+import type { IDiagnose } from 'src/interfaces/diagnose/diagnose.interface';
+import type { IResponseDiagnose } from 'src/interfaces/response/response-diagnose.interface';
 
 @Injectable()
 export class DiagnoseService {

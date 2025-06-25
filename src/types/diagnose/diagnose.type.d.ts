@@ -1,6 +1,6 @@
 import { type } from "os";
-import type { TIdCostumer } from "../costumer/TCostumer"; 
-import type { TIdUser } from "../users/TUsers";
+import type { TIdCostumer } from "../costumer/costumer.type"; 
+import type { TIdUser } from "../users/users.type";
 
 type TIdDiagnose= number; //id Dianostico
 type TIdCostumers= TIdCostumer; // id clientes

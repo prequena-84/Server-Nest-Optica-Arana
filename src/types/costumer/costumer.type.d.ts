@@ -1,4 +1,4 @@
-import type { TUserName, TPassword, TName, TLastName, TEmail, TTelefono,TTokenConfirmacion,TSessionExpiration } from "../users/TUsers";
+import type { TUserName, TPassword, TName, TLastName, TEmail, TTelefono,TTokenConfirmacion,TSessionExpiration } from "../users/users.type";
 
 type TIdCostumer = number;
 type TTypeDocument = 'Cedula'|'Cedula Extranjera'|'Pasaporte'|'RIF'|'DNI'|'CUIL'|'RUT';

@@ -1,8 +1,8 @@
 import { Controller, Get, Post, Body, Delete, Param, Patch } from '@nestjs/common';
 import { CostumerService } from './costumer.service';
-import type { ICostumer } from 'src/interfaces/costumer/ICostumer'; 
-import type { IResponseCostumer } from 'src/interfaces/response/IResponseCostumer';
-import type { TIdCostumer } from 'src/types/costumer/TCostumer';
+import type { ICostumer } from 'src/interfaces/costumer/costumer.interface'; 
+import type { IResponseCostumer } from 'src/interfaces/response/response-costumer.interface';
+import type { TIdCostumer } from 'src/types/costumer/costumer.type';
 
 @Controller('costumer')
 export class CostumerController {

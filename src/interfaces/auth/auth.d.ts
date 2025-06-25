@@ -1,4 +1,4 @@
-import type { TEmail,TPassword } from "src/types/users/TUsers"
+import type { TEmail,TPassword } from "src/types/users/users.type"
 
 interface IAuthUser {
     email:TEmail,

@@ -8,7 +8,7 @@ import type {
     TTelefono,
     TTokenConfirmacion,
     TSessionExpiration
-} from "src/types/users/TUsers";
+} from "src/types/users/users.type";
 
 interface IUser {
     idUser:TIdUser;

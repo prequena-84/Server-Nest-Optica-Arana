@@ -1,7 +1,7 @@
 import { Injectable, NestMiddleware, UnauthorizedException } from "@nestjs/common";
 import { Request, Response, NextFunction } from 'express';
-import controllerJWT from '../controllers/jwt.controller'
-import type { IDecodedToken } from "src/interfaces/controllers/jwt";
+import jwtServices from '../../../common/utils/jwt.services'
+import type { IDecodedToken } from "src/interfaces/middleware/jwt.interface";
 
 @Injectable()
 export class JwtMiddleware implements NestMiddleware {
@@ -13,7 +13,7 @@ export class JwtMiddleware implements NestMiddleware {
         if ( type !== 'Bearer' || !token) throw new UnauthorizedException('Formato de token inválido');
 
         try {
-            const decoded = controllerJWT.validateToken(token) as IDecodedToken;
+            const decoded = jwtServices.validateToken(token) as IDecodedToken;
             req['userName'] = decoded.userName;
             next();
         } catch(err) {

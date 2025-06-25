@@ -1,13 +1,13 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Document, Model } from 'mongoose'
 
-import type { IDiagnose } from 'src/interfaces/diagnose/Idiagnose'
+import type { IDiagnose } from 'src/interfaces/diagnose/diagnose.interface'
 import type { 
     TIdDiagnose,TIdCostumers,TIdUsers,TSphere,
     TCylinder,TAxis,TAdd,TDpn,THeight,TLensType,
     TLensMaterial,TFormula,TObservation
-} from "src/types/diagnose/TDiagnose"
-import type { IResponseDiagnose } from 'src/interfaces/response/IResponsediagnose'
+} from "src/types/diagnose/diagnose.type"
+import type { IResponseDiagnose } from 'src/interfaces/response/response-diagnose.interface'
 
 @Schema()
 export class ModelsDiagnose implements IDiagnose {

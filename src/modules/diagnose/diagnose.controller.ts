@@ -1,9 +1,9 @@
 import { Controller, Get, Post, Body, Delete, Param, Patch } from '@nestjs/common';
 import { DiagnoseService } from './diagnose.service';
 
-import type { IDiagnose } from 'src/interfaces/diagnose/Idiagnose';
-import type { TIdDiagnose } from 'src/types/diagnose/TDiagnose';
-import type { IResponseDiagnose } from 'src/interfaces/response/IResponsediagnose';
+import type { IDiagnose } from 'src/interfaces/diagnose/diagnose.interface';
+import type { TIdDiagnose } from 'src/types/diagnose/diagnose.type';
+import type { IResponseDiagnose } from 'src/interfaces/response/response-diagnose.interface';
 
 @Controller('diagnose')
 export class DiagnoseController {

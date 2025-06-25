@@ -1,4 +1,4 @@
-import type { IReportDiagnoses } from "../report/IReportDiagnose";
+import type { IReportDiagnoses } from "../report/report-diagnose.interface";
 
 interface IResponseReportDiagnose {
     data?: IReportDiagnoses | IReportDiagnoses[] | null | undefined ;

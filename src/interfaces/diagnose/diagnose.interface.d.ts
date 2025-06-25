@@ -2,7 +2,7 @@ import type {
     TIdDiagnose,TIdCostumers,TIdUsers,TSphere,
     TCylinder,TAxis,TAdd,TDpn,THeight,TLensType,
     TLensMaterial,TFormula,TObservation
-} from "src/types/diagnose/TDiagnose";
+} from "src/types/diagnose/diagnose.type";
 
 interface IDiagnose {
     idDiagnose:TIdDiagnose;   //id Dianostico

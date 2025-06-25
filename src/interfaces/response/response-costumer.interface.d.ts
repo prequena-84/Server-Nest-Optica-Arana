@@ -1,4 +1,4 @@
-import type { ICostumer } from "../costumer/ICostumer";
+import type { ICostumer } from "../costumer/costumer.interface";
 
 interface IResponseCostumer {
     data?: ICostumer | ICostumer[] | null;

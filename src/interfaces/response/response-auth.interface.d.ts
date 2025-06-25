@@ -1,4 +1,4 @@
-import type { TToken } from "src/types/auth/TAuth"
+import type { TToken } from "src/types/auth/auth.type"
 
 interface IResponseAuth {
     data: TToken,

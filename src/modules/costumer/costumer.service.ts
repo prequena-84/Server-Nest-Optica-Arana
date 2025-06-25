@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { ModelsCostumer, ICostumerModel } from './schemas/costumer.schema';
 
-import type { TIdCostumer } from 'src/types/costumer/TCostumer';
-import type { ICostumer } from 'src/interfaces/costumer/ICostumer';
-import type { IResponseCostumer } from 'src/interfaces/response/IResponseCostumer';
+import type { TIdCostumer } from 'src/types/costumer/costumer.type';
+import type { ICostumer } from 'src/interfaces/costumer/costumer.interface';
+import type { IResponseCostumer } from 'src/interfaces/response/response-costumer.interface';
 
 @Injectable()
 export class CostumerService {

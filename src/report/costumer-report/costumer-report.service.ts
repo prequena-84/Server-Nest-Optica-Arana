@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { ModelsCostumer, ICostumerModel } from '../../modules/costumer/schemas/costumer.schema';
-import type { IResponseReportCostumer } from 'src/interfaces/response/IResponseReportCostumer';
+import type { IResponseReportCostumer } from 'src/interfaces/response/response-report-costumer.interface';
 
 @Injectable()
 export class CostumerReportService {

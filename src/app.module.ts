@@ -1,9 +1,9 @@
 // Importación del Middleware
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
-import { JwtMiddleware } from './common/middleware/jwt.middleware';
+import { JwtMiddleware } from './core/guards/middleware/jwt.middleware';
 
 // Para conectar el nuevo modulo se debe importar 
-import { ConexionDB } from './config/connection/conexionDB.module';
+import { ConexionDB } from './config/database/database.module';
 
 // Importación de los Modulos que se van a conectar a esta colección
 import { UsersModule } from './modules/users/users.module';

@@ -2,9 +2,9 @@ import * as bcrypt from 'bcrypt'
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 import { Document, Model } from 'mongoose'
-import type { IUser } from 'src/interfaces/users/IUser'
-import type { IResponseUser } from 'src/interfaces/response/IResponseUser'
-import type { TIdUser } from 'src/types/users/TUsers'
+import type { IUser } from 'src/interfaces/users/user.interface'
+import type { IResponseUser } from 'src/interfaces/response/response-user.interface'
+import type { TIdUser } from 'src/types/users/users.type'
 
 @Schema()
 export class ModelsUsers implements IUser {

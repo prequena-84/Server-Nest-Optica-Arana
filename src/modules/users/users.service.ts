@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { ModelsUsers, IUserModel } from './schemas/user.schema';
 
-import type { TIdUser } from 'src/types/users/TUsers';
-import type { IUser } from 'src/interfaces/users/IUser';
-import type { IResponseUser } from 'src/interfaces/response/IResponseUser';
+import type { TIdUser } from 'src/types/users/users.type';
+import type { IUser } from 'src/interfaces/users/user.interface';
+import type { IResponseUser } from 'src/interfaces/response/response-user.interface';
 
 @Injectable()
 export class UsersService {

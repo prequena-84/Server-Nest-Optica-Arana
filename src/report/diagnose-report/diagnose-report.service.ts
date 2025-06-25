@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { ModelsDiagnose,IDiagnoseModel } from '../../modules/diagnose/schemas/Diagnose.schema';
-import { IResponseReportDiagnose } from 'src/interfaces/response/IResponseReportDiagnose';
+import { IResponseReportDiagnose } from 'src/interfaces/response/response-report-diagnose.interface';
 
 @Injectable()
 export class DiagnoseReportService {

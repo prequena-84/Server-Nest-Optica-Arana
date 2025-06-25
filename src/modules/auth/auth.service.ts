@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import controllerJWT from '../../common/controllers/jwt.controller';
+import controllerJWT from '../../common/utils/jwt.services';
 import type { IAuthUser } from 'src/interfaces/auth/auth';
 
 @Injectable()

@@ -1,7 +1,7 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import type { IAuthUser } from 'src/interfaces/auth/auth';
-import type { IResponseAuth } from 'src/interfaces/response/IResponseAuth';
+import type { IResponseAuth } from 'src/interfaces/response/response-auth.interface';
 
 @Controller('auth')
 export class AuthController {
