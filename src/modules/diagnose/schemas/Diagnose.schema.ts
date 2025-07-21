@@ -83,62 +83,44 @@ DiagnoseSchema.statics.allDiagnose = async function(): Promise<IDiagnose[]> {
 }
 
 DiagnoseSchema.statics.updateDataIdDiagnose = async function(idDiagnose:TIdDiagnose, data:IDiagnose): Promise<IResponseDiagnose> {
-    try {
-        const updateData:IDiagnose = await this.findOneAndUpdate({idDiagnose}, data, {new:true})
-        return {
-            data:updateData,
-            message:`Se actualizo los datos del Diagnostico sastifactoriamente`,
-        }
-
-    } catch(err) {
-        return {
-            data:null,
-            message:`Se presento el siguiente Error en la actualizacion de datos: ${err}`,
-        }
+    const updateData:IDiagnose = await this.findOneAndUpdate({idDiagnose}, data, {new:true})
+    return {
+        data:updateData,
+        message:`Se actualizo los datos del Diagnostico sastifactoriamente`,
     }
 }
 
 DiagnoseSchema.statics.createIntance = async function(data:IDiagnose):Promise<IResponseDiagnose> {
-    try {
-        const { 
-            idDiagnose, idCostumers, idUsers, sphereR,
-            sphereL, cylinderR, cylinderL, axisR, axisL,
-            addR, addL, dPnR, dPnL, heightR, heightL,
-            lensType, lensMaterial, formula,observation
-        } = data
+    const { 
+        idDiagnose, idCostumers, idUsers, sphereR,
+        sphereL, cylinderR, cylinderL, axisR, axisL,
+        addR, addL, dPnR, dPnL, heightR, heightL,
+        lensType, lensMaterial, formula,observation
+    } = data
 
-        const newDiagnose = new this({ idDiagnose, idCostumers, idUsers })
+    const newDiagnose = new this({ idDiagnose, idCostumers, idUsers })
 
-        if (sphereR) newDiagnose.sphereR = sphereR
-        if (sphereL) newDiagnose.sphereL = sphereL
-        if (cylinderR) newDiagnose.cylinderR = cylinderR
-        if (cylinderL) newDiagnose.cylinderL = cylinderL
-        if (axisR) newDiagnose.axisR = axisR
-        if (axisL) newDiagnose.axisL = axisL
-        if (addR) newDiagnose.addR = addR
-        if (addL) newDiagnose.addL = addL
-        if (dPnR) newDiagnose.dPnR = dPnR
-        if (dPnL) newDiagnose.dPnL = dPnL
-        if (heightR) newDiagnose.heightR = heightR
-        if (heightL) newDiagnose.heightL = heightL
-        if (lensType) newDiagnose.lensType = lensType
-        if (lensMaterial) newDiagnose.lensMaterial = lensMaterial
-        if (formula) newDiagnose.formula = formula
-        if (observation) newDiagnose.observation = observation
+    if (sphereR) newDiagnose.sphereR = sphereR
+    if (sphereL) newDiagnose.sphereL = sphereL
+    if (cylinderR) newDiagnose.cylinderR = cylinderR
+    if (cylinderL) newDiagnose.cylinderL = cylinderL
+    if (axisR) newDiagnose.axisR = axisR
+    if (axisL) newDiagnose.axisL = axisL
+    if (addR) newDiagnose.addR = addR
+    if (addL) newDiagnose.addL = addL
+    if (dPnR) newDiagnose.dPnR = dPnR
+    if (dPnL) newDiagnose.dPnL = dPnL
+    if (heightR) newDiagnose.heightR = heightR
+    if (heightL) newDiagnose.heightL = heightL
+    if (lensType) newDiagnose.lensType = lensType
+    if (lensMaterial) newDiagnose.lensMaterial = lensMaterial
+    if (formula) newDiagnose.formula = formula
+    if (observation) newDiagnose.observation = observation
 
-        await newDiagnose.save()
+    await newDiagnose.save()
 
-        return {
-            data:newDiagnose,
-            message:'Se registro el Diagnostico sastifactoriamente',
-        }
-
-    } catch(err) {
-
-        console.error('error en el metodo mongo', err)
-        return {
-            data:null,
-            message:`Se presento el siguiente error al registrar el nuevo cliente: ${err}`,
-        }
+    return {
+        data:newDiagnose,
+        message:'Se registro el Diagnostico sastifactoriamente',
     }
 }

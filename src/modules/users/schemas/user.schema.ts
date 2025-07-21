@@ -59,58 +59,38 @@ UserSchema.statics.allUser = async function(): Promise<IUser[]> {
 }
 
 UserSchema.statics.updateIdUser = async function(idUser:TIdUser, data:IUser): Promise<IResponseUser> {
-    try {
-
-        const updateData:IUser = await this.findOneAndUpdate({idUser}, data, {new:true})
-        return {
-            data:updateData,
-            message:`Se actualizo los datos del usuario #${updateData.userName} sastifactoriamente`,
-        }
-    } catch(err) {
-
-        return {
-            data:null,
-            message:`Se presento el siguiente Error en la actualizacion de datos: ${err}`,
-        }
+    const updateData:IUser = await this.findOneAndUpdate({idUser}, data, {new:true})
+    return {
+        data:updateData,
+        message:`Se actualizo los datos del usuario #${updateData.userName} sastifactoriamente`,
     }
 }
 
 UserSchema.statics.createInstance = async function(data:IUser): Promise<IResponseUser> {
-    try {
+    const {
+        idUser,
+        userName,
+        password,
+        name,
+        lastName,
+        email,
+        telefono,
+    } = data
 
-        const {
-            idUser,
-            userName,
-            password,
-            name,
-            lastName,
-            email,
-            telefono,
-        } = data
+    const newUser = new this({
+        idUser,
+        userName,
+        password,
+        name,
+        lastName,
+        email,
+        telefono,
+    })
 
-        const newUser = new this({
-            idUser,
-            userName,
-            password,
-            name,
-            lastName,
-            email,
-            telefono,
-        })
+    await newUser.save()
 
-        await newUser.save()
-
-        return {
-            data:newUser,
-            message:'Nuevo usuario creado',
-        }
-
-    } catch(err) {
-
-        console.error('error en el metodo mongo', err)
-        return {
-            data:null,
-            message:`Se presento el siguiente error al registrar al nuevo usuario: ${err}`,
-        }
+    return {
+        data:newUser,
+        message:'Nuevo usuario creado',
     }
 }

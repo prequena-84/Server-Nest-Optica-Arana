@@ -86,71 +86,52 @@ CostumerSchema.statics.allCostumer = async function(): Promise<ICostumer[]> {
 }
 
 CostumerSchema.statics.updateIdCostumer = async function(idCostumer:TIdCostumer, data:ICostumer): Promise<IResponseCostumer> {
-    try {
-        const updateData:ICostumer = await this.findOneAndUpdate({idCostumer}, data, {new:true})
-        return {
-            data:updateData,
-            message:`Se actualizo los datos del cliente ${updateData.name} ${updateData.lastName} sastifactoriamente`,
-        }
-
-    } catch(err) {
-        return {
-            data:null,
-            message:`Se presento el siguiente Error en la actualizacion de datos: ${err}`,
-        }
+    const updateData:ICostumer = await this.findOneAndUpdate({idCostumer}, data, {new:true})
+    return {
+        data:updateData,
+        message:`Se actualizo los datos del cliente ${updateData.name} ${updateData.lastName} sastifactoriamente`,
     }
 }
 
 CostumerSchema.statics.createInstance = async function(data:ICostumer): Promise<IResponseCostumer> {
-    try {
+    const {
+        idCostumer,
+        userName,
+        password,
+        name,
+        lastName,
+        typeDocument,
+        numberDocument,
+        nationality,
+        age,
+        address,
+        email,
+        telefono
+    } = data
 
-        const {
-            idCostumer,
-            userName,
-            password,
-            name,
-            lastName,
-            typeDocument,
-            numberDocument,
-            nationality,
-            age,
-            address,
-            email,
-            telefono
-        } = data
+    const newCostumer = new this({
+        idCostumer,
+        name,
+        lastName,
+        typeDocument,
+        numberDocument,
+        nationality,
+        age,
+        address
+    })
 
-        const newCostumer = new this({
-            idCostumer,
-            name,
-            lastName,
-            typeDocument,
-            numberDocument,
-            nationality,
-            age,
-            address
-        })
+    if ( userName && password ) {
+        newCostumer.userName = userName
+        newCostumer.password = password
+    }
 
-        if ( userName && password ) {
-            newCostumer.userName = userName
-            newCostumer.password = password
-        }
+    if ( email ) newCostumer.email = email
+    if ( telefono ) newCostumer.telefono = telefono
 
-        if ( email ) newCostumer.email = email
-        if ( telefono ) newCostumer.telefono = telefono
-   
-        await newCostumer.save()
+    await newCostumer.save()
 
-        return {
-            data:newCostumer,
-            message:'Nuevo usuario creado',
-        }
-
-    } catch(err) {
-
-        console.error('error en el metodo mongo', err)
-        return {
-            data:null,
-            message:`Se presento el siguiente error al registrar el nuevo cliente: ${err}`,
-        }
+    return {
+        data:newCostumer,
+        message:'Nuevo usuario creado',
     }
 }

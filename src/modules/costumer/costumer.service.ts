@@ -14,73 +14,33 @@ export class CostumerService {
     ) {};
 
     async getCostumers(): Promise<IResponseCostumer>{
-        try {
-
-            return {
-                data: await this.costumerModel.allCostumer(),
-                message:'Se realizo la consulta correctamente',
-            };
-        } catch(err) {
-
-            console.error('ocurrio el siguiente error', err);
-            return {
-                data:null,
-                message: `Ocurrio el siguiente error en la consulta: ${err}`,
-            };
+        return {
+            data: await this.costumerModel.allCostumer(),
+            message:'Se realizo la consulta correctamente',
         };
     };
 
     async setCostumerId(id:TIdCostumer, data:ICostumer): Promise<IResponseCostumer> {
-        try {
-
-            const response = await this.costumerModel.updateIdCostumer(id,data);
-            return {
-                data:response.data,
-                message:response.message,
-            };
-        } catch(err) {
-
-            console.error('ocurrio el siguiente error', err);
-            return {
-                data: null,
-                message:`Hubo un Error en la actualización del cliente: ${err}`,
-            };
+        const response = await this.costumerModel.updateIdCostumer(id,data);
+        return {
+            data:response.data,
+            message:response.message,
         };
     };
 
     async deleteCostumer(id:TIdCostumer): Promise<IResponseCostumer> {
-        try {
-
-            const response = await this.costumerModel.deleteOne({ idCostumer:id });
-            return {
-                data:null,
-                message:response.acknowledged ? `Eliminación correcta, Documentos afectados ${response.deletedCount}` : `Eliminación incorrecta, Documentos afectados ${response.deletedCount}`,
-            };
-        } catch(err) {
-
-            console.error('ocurrio el siguiente error', err);
-            return {
-                data:null,
-                message:`Se genero el siguiente error: ${err}`,
-            };
+        const response = await this.costumerModel.deleteOne({ idCostumer:id });
+        return {
+            data:null,
+            message:response.acknowledged ? `Eliminación correcta, Documentos afectados ${response.deletedCount}` : `Eliminación incorrecta, Documentos afectados ${response.deletedCount}`,
         };
     };
 
     async addCostumer(data:ICostumer): Promise<IResponseCostumer> {
-        try {
-            const response = await this.costumerModel.createInstance(data);
-            return {
-                data:response.data,
-                message: response.message,
-            };
-
-        } catch(err) {
-
-            console.error('ocurrio el siguiente error', err);
-            return {
-                data:null,
-                message:`Ocurrio el siguiente error en el registro: ${err}`,
-            };
+        const response = await this.costumerModel.createInstance(data);
+        return {
+            data:response.data,
+            message: response.message,
         };
     };
 };

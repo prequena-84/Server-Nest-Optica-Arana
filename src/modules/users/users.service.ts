@@ -15,73 +15,33 @@ export class UsersService {
     ) {};
 
     async getUsers(): Promise<IResponseUser> {
-        try {
-
-            return {
-                data: await this.userModel.allUser(),
-                message:'Se realizo la consulta correctamente',
-            };
-        } catch(err) {
-
-            console.error('ocurrio el siguiente error', err);
-            return {
-                data:null,
-                message: `Ocurrio el siguiente error en la consulta: ${err}`,
-            };
+        return {
+            data: await this.userModel.allUser(),
+            message:'Se realizo la consulta correctamente',
         };
     };
 
     async setUserId(id:TIdUser, data:IUser): Promise<IResponseUser> {
-        try {
-
-            const response = await this.userModel.updateIdUser(id,data);
-            return {
-                data:response.data,
-                message:response.message,
-            };
-        } catch(err) {
-
-            console.error('ocurrio el siguiente error', err);
-            return {
-                data: null,
-                message:`Hubo un Error en la actualización del cliente: ${err}`,
-            };
+        const response = await this.userModel.updateIdUser(id,data);
+        return {
+            data:response.data,
+            message:response.message,
         };
     };
 
     async deleteUser(id:TIdUser): Promise<IResponseUser> {
-        try {
-
-            const response = await this.userModel.deleteOne({ idUser:id });
-            return {
-                data:null,
-                message:response.acknowledged ? `Eliminación correcta, Documentos afectados ${response.deletedCount}` : `Eliminación incorrecta, Documentos afectados ${response.deletedCount}`,
-            };
-        } catch(err) {
-
-            console.error('ocurrio el siguiente error', err);
-            return {
-                data:null,
-                message:`Se genero el siguiente error: ${err}`,
-            };
+        const response = await this.userModel.deleteOne({ idUser:id });
+        return {
+            data:null,
+            message:response.acknowledged ? `Eliminación correcta, Documentos afectados ${response.deletedCount}` : `Eliminación incorrecta, Documentos afectados ${response.deletedCount}`,
         };
     };
 
     async addUser(data:IUser): Promise<IResponseUser> {
-        try {
-            const response = await this.userModel.createInstance(data);
-            return {
-                data:response.data,
-                message: response.message,
-            };
-
-        } catch(err) {
-
-            console.error('ocurrio el siguiente error', err);
-            return {
-                data:null,
-                message:`Ocurrio el siguiente error en el registro: ${err}`,
-            };
+        const response = await this.userModel.createInstance(data);
+        return {
+            data:response.data,
+            message: response.message,
         };
     };
 };
